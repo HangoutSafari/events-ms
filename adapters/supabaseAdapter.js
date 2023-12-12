@@ -25,6 +25,7 @@ export async function getEventIdData(eventId){
 
   if (error) {
     console.error('query error', error);
+    return {id:null}
     throw error;
   }
 
