@@ -16,11 +16,11 @@ export async function getEventsData() {
   return data;
 }
 
-export async function getEventIdData(EventId){
+export async function getEventIdData(eventId){
   const { data, error } = await supabase
     .from('events')
     .select()
-    .eq('id', EventId) 
+    .eq('id', eventId) 
     .single(); 
 
   if (error) {
