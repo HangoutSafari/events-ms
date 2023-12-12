@@ -9,6 +9,24 @@ const supabase = createClient(
 
 export async function getEventsData() {
   const { data, error } = await supabase.from('events').select();
-  if (error) console.log('query error', error);
-  else return data;
+  if (error) {
+    console.error('query error', error);
+    throw error;
+  }
+  return data;
+}
+
+export async function getEventIdData(EventId){
+  const { data, error } = await supabase
+    .from('events')
+    .select()
+    .eq('id', EventId) 
+    .single(); 
+
+  if (error) {
+    console.error('query error', error);
+    throw error;
+  }
+
+  return data;
 }
