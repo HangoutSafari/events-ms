@@ -1,4 +1,3 @@
-// sum.test.js
 import { expect, test } from 'vitest'
 import * as dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
