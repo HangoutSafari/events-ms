@@ -1,25 +1,15 @@
-import { deleteAuthDataFrom, getAuthDataFrom, insertAuthDataTo, updateAuthDataTo } from "../dbHelper.js";
-import { getEventsData, getEventIdData } from "../adapters/supabaseAdapter.js";
+import { deleteAuthDataFrom, getAuthDataFrom, getDataFrom, insertAuthDataTo, updateAuthDataTo } from "../dbHelper.js";
 
-export async function getEvents(req, res) {
-  try {
-    const data = await getEventsData();
-    res.status(200).json(data);
-  } catch (err) {
-    res.send(`error in viaSupabase: ${err}`);
-  }
+export async function getAllEvents(req, res) {
+  getDataFrom(req, res, "events", req.params.id);
 }
 
-export async function getEventId(req, res) {
-  try {
-    const EventId = parseInt(req.params.number);
-    const users = await getEventIdData(EventId);
-    res.json(users);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
+export async function getChosenEvent(req, res) {
+  getDataFrom(req, res, "events", req.params.id);
 };
-
+export async function getAllCategories(req, res) {
+  getDataFrom(req, res, "event-categories");
+}
 
 export async function getAuthAllEvents(req, res) {
   getAuthDataFrom(req, res, "events");

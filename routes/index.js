@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 import cors from 'cors';
-import { getEvents, getEventId } from '../controllers/eventsViaSupabase.js';
+import { getAllEvents, getChosenEvent, getAllCategories } from '../controllers/eventsViaSupabase.js';
 
 const router = express.Router();
 
@@ -19,7 +19,8 @@ router.options('/', (req, res, next) => {
   }
 });
 
-router.get('/', cors(), getEvents);
-router.get('/:id', cors(), getEventId);
+router.get('/', cors(), getAllEvents);
+router.get('/categories', cors(), getAllCategories);
+router.get('/:id', cors(), getChosenEvent);
 
 export default router;
