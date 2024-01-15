@@ -4,11 +4,7 @@ import { getEvents, getEventId } from '../controllers/eventsViaSupabase.js';
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
-  res.json("it's working :3 ");
-});
-
-router.options('/events', (req, res, next) => {
+router.options('/', (req, res, next) => {
   try {
     res.header({
       allow: 'GET, POST, OPTIONS',
@@ -23,7 +19,7 @@ router.options('/events', (req, res, next) => {
   }
 });
 
-router.get('/events', cors(), getEvents);
-router.get('/events/:number', cors(), getEventId);
+router.get('/', cors(), getEvents);
+router.get('/:id', cors(), getEventId);
 
 export default router;
