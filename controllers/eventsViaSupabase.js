@@ -8,7 +8,7 @@ export async function getChosenEvent(req, res) {
   getDataFrom(req, res, "events", req.params.id);
 };
 export async function getAllCategories(req, res) {
-  getDataFrom(req, res, "event-categories");
+  getDataFrom(req, res, "event_categories");
 }
 
 export async function getAuthAllEvents(req, res) {
