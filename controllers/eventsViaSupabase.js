@@ -12,7 +12,7 @@ export async function getAllCategories(req, res) {
 }
 
 export async function getAuthAllEvents(req, res) {
-  getAuthDataFrom(req, res, "events");
+  getAuthDataFrom(req, res, "subscribed_events");
 }
 
 export async function getAuthChosenEvents(req, res) {
