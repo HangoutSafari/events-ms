@@ -34,3 +34,11 @@ export async function deleteAuthEvents(req, res) {
 export async function getParticipants(req, res) {
   getServiceFunction(req, res, "get_participants", "given_id", req.params.id);
 }
+
+export async function subscribeToAnEvent(req, res) {
+  insertAuthDataTo(req, res, "users_events")
+}
+
+export async function attendToAnEvent(req, res) {
+  updateAuthDataTo(req, res, "users_events", "event_id", req.params.id)
+}

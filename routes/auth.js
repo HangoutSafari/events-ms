@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { getAuthAllEvents, getAuthChosenEvents, insertAuthEvents, updateAuthEvents, deleteAuthEvents } from '../controllers/eventsViaSupabase.js';
+import { getAuthAllEvents, getAuthChosenEvents, insertAuthEvents, updateAuthEvents, deleteAuthEvents, subscribeToAnEvent, attendToAnEvent } from '../controllers/eventsViaSupabase.js';
 
 
 const router = express.Router();
@@ -45,6 +45,8 @@ router.options('/:id', (req, res, next) => {
 router.get('/', getAuthAllEvents);
 router.get('/:id', getAuthChosenEvents);
 router.post('/', insertAuthEvents);
+router.post('/subscribe', subscribeToAnEvent);
+router.put('/attend/:id', attendToAnEvent)
 router.put('/:id', updateAuthEvents);
 router.delete('/:id', deleteAuthEvents);
 
